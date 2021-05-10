@@ -1,15 +1,20 @@
 <template>
   <main>
     <today-weather-wrapper />
+    <general-weather-info />
   </main>
 </template>
 
 <script>
-import TodayWeatherWrapper from './components/TodayWeatherWrapper/TodayWeatherWrapper.vue';
+import TodayWeatherWrapper from './components/TodayWeather/TodayWeather.vue';
+import GeneralWeatherInfo from './components/GeneralWeatherInfo/GeneralWeatherInfo.vue';
+
 export default {
   name: 'App',
   components: {
-    TodayWeatherWrapper
+    TodayWeatherWrapper,
+    GeneralWeatherInfo
+    
   }
 }
 </script>

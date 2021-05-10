@@ -3,7 +3,7 @@
         <toolbar />
         <div class="todayWeather">
             <img class="todayWeather__image"
-                src="./../../assets/Shower.png"/>
+                src="/img/Shower.png"/>
             <div class="todayWeather__temperature">15<span class="todayWeather__degree">&#8451;</span></div>
             <div class="todayWeather__description">Shower</div>
             <div class="todayWeather__date">Today<span class="todayWeather__dot">•</span>Fri, 5 Jun</div>
@@ -54,7 +54,8 @@ export default {
     height: 326px;
     opacity: 0.05;
 
-    background-image: url('./../../assets/Cloud-background.png');
+    /* background-image: url('./../../assets/Cloud-background.png'); */
+    background-image: url('/img/Cloud-background.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
