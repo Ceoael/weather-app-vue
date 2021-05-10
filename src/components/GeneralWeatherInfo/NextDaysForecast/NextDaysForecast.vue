@@ -1,7 +1,7 @@
 <template>
     <section class="nextDaysForecast">
         <day-weather 
-            date="Tommorow"
+            date="Tomorrow"
             imageName="Sleet"
             dayTemperature="16"
             nightTemperature="11"/>
