@@ -1,11 +1,16 @@
 <template>
-  <div></div>
+  <main>
+    <today-weather-wrapper />
+  </main>
 </template>
 
 <script>
-
+import TodayWeatherWrapper from './components/TodayWeatherWrapper/TodayWeatherWrapper.vue';
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    TodayWeatherWrapper
+  }
 }
 </script>
 
