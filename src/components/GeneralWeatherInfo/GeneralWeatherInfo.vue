@@ -2,7 +2,7 @@
     <section class="generalWeatherInfo">
         <next-days-forecast />
         <weather-parameters />
-        <footer class="footer">created by <a class="footer_link" href="#">ceoael</a> - devChallenges.io</footer>
+        <footer class="footer">created by <a class="footer_link" href="https://github.com/ceoael">ceoael</a> - devChallenges.io</footer>
     </section>
 </template>
 
@@ -23,7 +23,7 @@ export default {
 .generalWeatherInfo {
     min-height: 100vh;
     padding-bottom: 24px;
-    
+
     background: #100E1D;
     color: #E7E7EB;
 }

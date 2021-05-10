@@ -1,5 +1,6 @@
 <template>
   <main>
+    <navigation />
     <today-weather-wrapper />
     <general-weather-info />
   </main>
@@ -8,13 +9,14 @@
 <script>
 import TodayWeatherWrapper from './components/TodayWeather/TodayWeather.vue';
 import GeneralWeatherInfo from './components/GeneralWeatherInfo/GeneralWeatherInfo.vue';
+import Navigation from './components/Navigation/Navigation.vue';
 
 export default {
   name: 'App',
   components: {
     TodayWeatherWrapper,
-    GeneralWeatherInfo
-    
+    GeneralWeatherInfo,
+    Navigation    
   }
 }
 </script>
@@ -24,5 +26,9 @@ export default {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+  }
+
+  body {
+    background: #100E1D;
   }
 </style>
