@@ -8,7 +8,7 @@
         <weather-parameter 
             name="Humidity"
             value="84"
-            unit="%"> 0-------------50-------------100 </weather-parameter>
+            unit="%"> 0-----50-----100 </weather-parameter>
         <weather-parameter 
             name="Visibility"
             value="6,4"
@@ -40,9 +40,20 @@ export default {
     padding: 0 21px;
 }
 .WeatherParameters__header {
+    width: 100%;
+
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-style: normal;
     font-size: 24px;
+}
+
+@media (min-width: 1024px){
+    
+    .WeatherParameters {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 }
 </style>

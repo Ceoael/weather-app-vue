@@ -47,6 +47,16 @@ export default {
 
     width: 100%;
     
-    padding: 55px 52px;
+    padding: 55px 15px;
+}
+@media (min-width: 320px) {
+    .nextDaysForecast {
+        padding: 55px 25px;
+    }
+}
+@media (min-width: 340px) {
+    .nextDaysForecast {
+        padding: 55px 52px;
+    }
 }
 </style>

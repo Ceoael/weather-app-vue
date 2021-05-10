@@ -72,25 +72,17 @@ export default {
 }
 .todayWeather__temperature {
     margin-top: 40px;
-
-    /* height: 169px;
-    width: 192px; */
-
+    
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
     font-size: 144px;
     color: #E7E7EB;
-
-    /* line-height: 169px; */
-
-
-
 }
 .todayWeather__degree {
     
-    font-size: 45px;
+    font-size: 48px;
     color: #A09FB1;
-    font-weight: 600;
+    font-weight: 100;
 
 }
 .todayWeather__description {
@@ -118,7 +110,6 @@ export default {
     display: flex;
 
     margin-top: 32px;
-    margin-bottom: 100px;  /* ? */
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 18px;
@@ -128,6 +119,41 @@ export default {
 }
 .todayWeather__placeIcon {
     margin-right: 9px;
+}
+
+@media (min-width: 1024px){
+    .todayWeatherWrapper {
+        max-width: 460px;
+    }
+    .todayWeatherWrapper::before {
+        width: 650px;
+        height: 376px;
+    }
+    .todayWeather__image {
+        margin-top: 109px;
+        width: 202px;
+        height: 234px;
+    }
+    .todayWeather__temperature {
+        margin-top: 67px;
+    }
+    .todayWeather__description,
+    .todayWeather__date {
+        margin-top: 87px;
+    }
+}
+
+@media (min-width: 1200px){
+    .todayWeather__image {
+        margin-top: 0px;
+    }
+    .todayWeather__temperature {
+        margin-top: 0;
+    }
+    .todayWeather__description,
+    .todayWeather__date {
+        margin-top: 20px;
+    }
 }
 </style>
 

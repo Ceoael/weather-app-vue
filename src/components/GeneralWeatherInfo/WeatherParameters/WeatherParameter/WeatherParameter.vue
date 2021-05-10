@@ -65,4 +65,25 @@ export default {
     font-style: normal;
     font-weight: 700;
 }
+@media (min-width: 1024px){
+    .weatherParameter {
+        width: 150px;
+    }
+
+    .weatherParameter__value {
+        font-size: 36px;
+    }
+    .weatherParameter__value--unit {
+        font-size: 16px;
+    }
+    .weatherParameter__additionalData {
+        font-size: 14px;
+        
+    }
+}
+/* @media (min-width: 1200px){
+    .weatherParameter {
+        width: 250px;
+    }
+} */
 </style>

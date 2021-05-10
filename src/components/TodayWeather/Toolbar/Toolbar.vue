@@ -37,29 +37,48 @@ export default {
     color: #E7E7EB;
 
     border: none;
+    transition: .3s all ease-in-out;
+    cursor: pointer;
 }
+
 .toolbar__circleButton {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
 
     width: 40px;
     height: 40px;
 
     background: #6E707A;
-    /* background: rgba(110, 112, 122, 0,3); */
-
-    border: none;
-    border-radius: 50%;
-}
-.toolbar__locationIcon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 22px;
-    height: 22px;
     font-size: 22px;
 
     color: #E7E7EB;
+    border: none;
+    border-radius: 50%;
+    transition: .3s all ease-in-out;
+    cursor: pointer;
+}
+.toolbar__circleButton:hover,
+.toolbar__circleButton:active,
+.toolbar__searchButton:hover,
+.toolbar__searchButton:active {
+    background: #494a51;
+    color: #b2b2be;
+}
+  /* .toolbar__locationIcon { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+    width: 22px;
+    height: 22px; 
+    font-size: 22px;  
+}  */
+
+@media (min-width: 1024px){
+    .toolbar {
+        padding: 42px 46px;
+    }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="weather-app">
     <navigation />
     <today-weather-wrapper />
     <general-weather-info />
@@ -30,5 +30,10 @@ export default {
 
   body {
     background: #100E1D;
+  }
+  @media (min-width: 1024px) {
+    .weather-app {
+      display: flex;
+    }
   }
 </style>

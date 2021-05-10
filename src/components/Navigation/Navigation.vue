@@ -35,11 +35,19 @@ export default {
 
 <style scoped>
 .navigation {
+    position: fixed;
+    top: 0;
+    left:0;
+
     height: 100vh;
     padding: 12px;
 
     color: #E7E7EB;
     background-color: #1E213A;
+
+    z-index: 1;
+    
+    display: none;
 }
 .navigation__close {
     display: flex;
@@ -65,21 +73,28 @@ export default {
 }
 .searchBar {
     display: flex;
+    justify-content: space-between;
+
     margin-top: 14px;
     margin-bottom: 38px;
 }
 .searchBar__searchBox {
+    flex-grow: 1;
+    
     display: flex;
-    padding: 15px;
+    padding: 15px 10px;
     margin-right: 12px;
     border: 1px solid #E7E7EB;
 }
 .searchBar__icon {
     color: #616475;
-    margin-right: 17px;
+    margin-right: 5px;
 }
 .searchBar__input {
+    display: block;
     background: transparent;
+    
+    width: 100%;
 
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
@@ -90,6 +105,7 @@ export default {
     border: none;
     outline: none;
 }
+
 .searchBar__button {
     width: 86px;
 
@@ -101,6 +117,11 @@ export default {
     color: #E7E7EB;
 
     border: none;
+    transition: .3s all ease-in-out;
+}
+.searchBar__button:hover,
+.searchBar__button:active {
+    background: #4e72eb;
 }
 .place {
     display: flex;
@@ -134,5 +155,20 @@ export default {
 
 .place:hover .place__icon {
     opacity: 1;
+}
+
+@media (min-width: 281px) {
+    .searchBar__searchBox {
+        padding: 15px;
+    }
+    .searchBar__icon {
+        margin-right: 17px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .navigation {
+        width: 460px;
+    }
 }
 </style>

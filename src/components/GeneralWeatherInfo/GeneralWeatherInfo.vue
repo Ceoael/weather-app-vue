@@ -21,6 +21,7 @@ export default {
 
 <style scoped>
 .generalWeatherInfo {
+    width: 100%;
     min-height: 100vh;
     padding-bottom: 24px;
 
@@ -40,5 +41,11 @@ export default {
 .footer_link {
     color: #A09FB1;
     font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+    .generalWeatherInfo {
+        padding-bottom: 5px;
+    }
 }
 </style>
