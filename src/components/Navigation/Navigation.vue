@@ -1,7 +1,7 @@
 <template>
-    <nav class="navigation">
+    <nav class="navigation" :class="{'navigation--show' : show}">
         <div class="navigation__close">
-            <button class="closeButton">
+            <button class="closeButton" @click="showNavigationHandler(false)">
                 <span :class="['material-icons', 'closeButton__icon']">close</span>
             </button>
         </div>
@@ -29,7 +29,14 @@
 
 <script>
 export default {
-    
+    name: "Navigation",
+    props: {
+        show: {
+            type: Boolean,
+            required: true
+        }
+    },
+    inject: ["showNavigationHandler"]
 }
 </script>
 
@@ -45,10 +52,17 @@ export default {
     color: #E7E7EB;
     background-color: #1E213A;
 
-    z-index: 1;
+    z-index: 2;
     
-    display: none;
+    
+    transform: translateX(-100%);
+    transition: .3s transform ease-in-out;
 }
+
+.navigation--show {
+    transform: translateX(0);
+}
+
 .navigation__close {
     display: flex;
     justify-content: flex-end;

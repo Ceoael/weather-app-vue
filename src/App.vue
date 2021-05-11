@@ -1,6 +1,6 @@
 <template>
   <main class="weather-app">
-    <navigation />
+    <navigation :show="showNavigation"/>
     <today-weather-wrapper />
     <general-weather-info />
   </main>
@@ -17,6 +17,21 @@ export default {
     TodayWeatherWrapper,
     GeneralWeatherInfo,
     Navigation    
+  },
+  provide(){
+    return {
+      showNavigationHandler: this.showNavigationHandler
+    }
+  },
+  data(){
+    return {
+      showNavigation: false
+    }
+  },
+  methods: {
+    showNavigationHandler(bValue) {
+      this.showNavigation = bValue;
+    }
   }
 }
 </script>
@@ -31,6 +46,11 @@ export default {
   body {
     background: #100E1D;
   }
+
+  .weather-app {
+      overflow: hidden;
+  }
+
   @media (min-width: 1024px) {
     .weather-app {
       display: flex;

@@ -1,6 +1,6 @@
 <template>
     <div class="toolbar">
-        <button class="toolbar__searchButton">Search for places</button>
+        <button class="toolbar__searchButton" @click="showNavigationHandler(true)">Search for places</button>
         <button class="toolbar__circleButton">
             <span class="material-icons" :class="'toolbar__locationIcon'">my_location</span>
         </button>
@@ -9,7 +9,8 @@
 
 <script>
 export default {
-    
+    name: "Toolbar",
+    inject: ['showNavigationHandler']
 }
 </script>
 
@@ -39,6 +40,8 @@ export default {
     border: none;
     transition: .3s all ease-in-out;
     cursor: pointer;
+
+    z-index: 1;  /* TODO: DELETE THIS PROPERTY, THERE IS PROBLEM WITH CLOUD BGC IMG:before*/
 }
 
 .toolbar__circleButton {
@@ -57,6 +60,8 @@ export default {
     border-radius: 50%;
     transition: .3s all ease-in-out;
     cursor: pointer;
+
+    z-index: 1;   /* TODO: DELETE THIS PROPERTY, THERE IS PROBLEM WITH CLOUD BGC IMG:before*/
 }
 .toolbar__circleButton:hover,
 .toolbar__circleButton:active,
