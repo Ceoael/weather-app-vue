@@ -3,19 +3,19 @@
         <h1 class="WeatherParameters__header">Today's Hightlights</h1>
         <weather-parameter 
             name="Wind status"
-            value="7"
-            unit="mph"> WSW </weather-parameter>
+            :value="windSpeed"
+            unit="mph">{{ windDirection }}</weather-parameter>
         <weather-parameter 
             name="Humidity"
-            value="84"
-            unit="%"> 0-----50-----100 </weather-parameter>
+            :value="humidity"
+            unit="%"/>
         <weather-parameter 
             name="Visibility"
-            value="6,4"
+            :value="visibility"
             unit=" miles"/>
         <weather-parameter 
             name="Air Pressure"
-            value="998"
+            :value="airPressure"
             unit=" mb"/>
     </section>    
 </template>
@@ -27,6 +27,23 @@ export default {
     name: 'WeatherParameters',
     components: {
         WeatherParameter
+    },
+    computed: {
+        windSpeed(){
+            return this.$store.getters.todayWeatherForecast.windSpeed
+        },
+        windDirection(){
+            return this.$store.getters.todayWeatherForecast.windDirection
+        },
+        humidity(){
+            return this.$store.getters.todayWeatherForecast.humidity;
+        },
+        visibility(){
+            return this.$store.getters.todayWeatherForecast.visibility;
+        },
+        airPressure(){
+            return this.$store.getters.todayWeatherForecast.airPressure;
+        }
     }
 }
 </script>

@@ -1,15 +1,6 @@
 export default {
-    saveGeoLocation(state, payload) { // this.$store.commit('saveUserGeoLocation', { latt: 10, long: 10 });
-        if (payload.error) {
-            state.geoLocation = {
-                error: payload.error
-            }
-        } else {
-            state.geoLocation = {
-                latt: payload.latt,
-                long: payload.long
-            };
-        }
+    setLoading(state, payload){
+        state.loading = payload.loading;
     },
     saveUserWoeid(state, payload) {
         state.woeid = payload.woeid;
@@ -19,5 +10,11 @@ export default {
     },
     saveWeatherForecast(state, payload) {
         state.weatherForecast = payload.weatherForecast;
+    },
+    setAvailablePlaces(state, payload) {
+        state.availablePlaces = payload.places;
+    },
+    setError(state, payload) {
+        state.error = payload.message;
     }
 }

@@ -3,13 +3,13 @@
         <toolbar />
         <div class="todayWeather">
             <img class="todayWeather__image"
-                src="/img/Shower.png"/>
-            <div class="todayWeather__temperature">15<span class="todayWeather__degree">&#8451;</span></div>
-            <div class="todayWeather__description">Shower</div>
-            <div class="todayWeather__date">Today<span class="todayWeather__dot">•</span>Fri, 5 Jun</div>
+                :src="imageSrc"/>
+            <div class="todayWeather__temperature">{{ temperature }}<span class="todayWeather__degree">&#8451;</span></div>
+            <div class="todayWeather__description">{{ weatherState }}</div>
+            <div class="todayWeather__date">Today<span class="todayWeather__dot">•</span>{{ todayDate }}</div>
             <div class="todayWeather__localization">
                 <span class="material-icons" :class="'todayWeather__placeIcon'">place</span>
-                Helsinki
+                {{ localization }}
             </div>
         </div>
     </section>
@@ -23,6 +23,23 @@ export default {
     components: {
         Toolbar
     },
+    computed: {
+        temperature() {
+            return this.$store.getters.todayWeatherForecast.temperature;
+        },
+        weatherState() {
+            return this.$store.getters.todayWeatherForecast.weatherState;
+        },
+        imageSrc() {
+            return `/img/${this.weatherState}.png`;
+        },
+        localization() {
+            return this.$store.getters.currentCity;
+        },
+        todayDate() {
+            return this.$store.getters.todayWeatherForecast.date;
+        }
+    }
 }
 </script>
 

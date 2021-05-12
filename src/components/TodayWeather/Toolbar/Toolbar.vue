@@ -1,7 +1,7 @@
 <template>
     <div class="toolbar">
         <button class="toolbar__searchButton" @click="showNavigationHandler(true)">Search for places</button>
-        <button class="toolbar__circleButton">
+        <button class="toolbar__circleButton" @click="getClosestCity">
             <span class="material-icons" :class="'toolbar__locationIcon'">my_location</span>
         </button>
     </div>
@@ -10,7 +10,41 @@
 <script>
 export default {
     name: "Toolbar",
-    inject: ['showNavigationHandler']
+    inject: ['showNavigationHandler'],
+    methods: {
+        getClosestCity(){
+            const getPosition = () => {
+
+                this.$store.dispatch('loading', {loading: true});
+
+                return new Promise((resolve, reject) =>
+                    navigator.geolocation.getCurrentPosition(resolve, reject)
+                );
+            }
+            if (!navigator.geolocation){
+                return 
+            } else {
+                getPosition()
+                    .then((position) => {
+                        const userLocation = `lattlong=${position.coords.latitude},${position.coords.longitude}`;
+                        fetch(`http://localhost:4000/weather/search?${userLocation}`)
+                            .then( res => res.json())
+                            .then( data => {
+                                console.log(data);
+                                console.log(this);
+                                this.$store.dispatch('getWeather', {location: data[0].woeid});
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                    })
+                    .catch((err) => {
+                        console.log('Couldn\'t get location');
+                        console.log(err);
+                    })
+            }
+            }
+    }
 }
 </script>
 

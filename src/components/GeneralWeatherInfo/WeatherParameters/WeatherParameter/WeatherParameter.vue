@@ -18,7 +18,7 @@ export default {
             required: true
         },
         value: {
-            type: String || Number,
+            type: Number,
             required: true
         },
         unit: {

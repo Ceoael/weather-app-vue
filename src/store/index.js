@@ -7,7 +7,26 @@ import getters from './getters';
 const store = createStore({
     state() {
         return {
-            geoLocation: {latt: 51.506321, long:-0.12714},
+            error: '',
+            availablePlaces: [{
+                title:"London",
+                location_type:"City",
+                woeid:44418,
+                latt_long:"51.506321,-0.12714"
+            },
+            {
+                title:"Barcelona",
+                location_type:"City",
+                woeid:753692,
+                latt_long:"41.385578,2.168740"
+            },
+            {
+                title:"Long Beach",
+                location_type:"City",
+                woeid:2441472,
+                latt_long:"33.766720,-118.192398"
+            }],
+            loading: false,
             woeid: 44418,
             currentCity: 'London',
             weatherForecast: 
@@ -20,7 +39,9 @@ const store = createStore({
                         "wind_direction_compass":"S",
                         "created":"2021-05-11T09:32:02.690930Z",
                         "applicable_date":"2021-05-11",
-                        "min_temp":7.465,"max_temp":16.35,"the_temp":15.735,
+                        "min_temp":7.465,
+                        "max_temp":16.35,
+                        "the_temp":18.735,
                         "wind_speed":7.74303049818394,
                         "wind_direction":186.00244214605814,
                         "air_pressure":1007.5,

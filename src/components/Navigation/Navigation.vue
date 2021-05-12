@@ -1,27 +1,23 @@
 <template>
     <nav class="navigation" :class="{'navigation--show' : show}">
         <div class="navigation__close">
-            <button class="closeButton" @click="showNavigationHandler(false)">
+            <button class="closeButton" @click="closeNav">
                 <span :class="['material-icons', 'closeButton__icon']">close</span>
             </button>
         </div>
         <div class="searchBar">
             <div class="searchBar__searchBox">
                 <span :class="['material-icons', 'searchBar__icon']">search</span>
-                <input class="searchBar__input" placeholder="search location"/>
+                <input class="searchBar__input" placeholder="search location" v-model.trim="placeName"/>
             </div>
-            <button class="searchBar__button">Search</button>
+            <button class="searchBar__button" @click="searchHandler">Search</button>
         </div>
-        <button class="place">
-            <p class="place__name">London</p>
-            <span :class="['material-icons', 'place__icon']">chevron_right</span>
-        </button>
-        <button class="place">
-            <p class="place__name">Barcelona</p>
-            <span :class="['material-icons', 'place__icon']">chevron_right</span>
-        </button>
-        <button class="place">
-            <p class="place__name">LongBeach</p>
+
+        <button v-for="place in places"
+            class="place" 
+            :key="place.woeid"
+            @click="selectedCityHandler(place.woeid)">
+            <p class="place__name">{{ place.title }}</p>
             <span :class="['material-icons', 'place__icon']">chevron_right</span>
         </button>
     </nav>
@@ -36,7 +32,33 @@ export default {
             required: true
         }
     },
-    inject: ["showNavigationHandler"]
+    inject: ["showNavigationHandler"],
+    data() {
+        return {
+            placeName: '',
+        }
+    },
+    methods: {
+        closeNav() {
+            this.showNavigationHandler(false);
+            this.placeName = '';
+        },
+        selectedCityHandler(woeid) {
+            this.closeNav();
+            this.$store.dispatch('loading', {loading: true});
+            this.$store.dispatch('getWeather', {location: woeid});
+        },
+        searchHandler() {
+            const formattedName = encodeURI(this.placeName);
+
+            this.$store.dispatch('getAvailablePlaces', {name: formattedName});
+        }
+    },
+    computed: {
+        places() {
+            return this.$store.getters.getAvailablePlaces;
+        }
+    }
 }
 </script>
 

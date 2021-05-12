@@ -1,5 +1,9 @@
 <template>
   <main class="weather-app">
+    <backdrop :show="loading">
+      <spinner/>
+    </backdrop>
+    
     <navigation :show="showNavigation"/>
     <today-weather-wrapper />
     <general-weather-info />
@@ -10,13 +14,18 @@
 import TodayWeatherWrapper from './components/TodayWeather/TodayWeather.vue';
 import GeneralWeatherInfo from './components/GeneralWeatherInfo/GeneralWeatherInfo.vue';
 import Navigation from './components/Navigation/Navigation.vue';
+import Backdrop from './components/Backdrop/Backdrop.vue';
+import Spinner from './components/Spinner/Spinner.vue';
+
 
 export default {
   name: 'App',
   components: {
     TodayWeatherWrapper,
     GeneralWeatherInfo,
-    Navigation    
+    Navigation,
+    Backdrop,
+    Spinner 
   },
   provide(){
     return {
@@ -26,6 +35,11 @@ export default {
   data(){
     return {
       showNavigation: false
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters.loading;
     }
   },
   methods: {

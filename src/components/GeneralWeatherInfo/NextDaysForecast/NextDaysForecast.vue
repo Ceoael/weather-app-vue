@@ -1,30 +1,12 @@
 <template>
     <section class="nextDaysForecast">
-        <day-weather 
-            date="Tomorrow"
-            imageName="Sleet"
-            dayTemperature="16"
-            nightTemperature="11"/>
-        <day-weather 
-            date="Sun, 7 Jun"
-            imageName="LightRain"
-            dayTemperature="16"
-            nightTemperature="11"/>
-        <day-weather 
-            date="Mon, 8 Jun"
-            imageName="Thunderstorm"
-            dayTemperature="16"
-            nightTemperature="11"/>
-        <day-weather 
-            date="Tue, 9 Jun"
-            imageName="LightCloud"
-            dayTemperature="16"
-            nightTemperature="11"/>
-        <day-weather 
-            date="Wed, 10 Jun"
-            imageName="HeavyRain"
-            dayTemperature="16"
-            nightTemperature="11"/>
+        <day-weather v-for="(day, index) in weatherForecast"
+            :key="day.id"
+            :date="index === 0 ? 'Tommorow' : day.date"
+            :imageName="day.state"
+            :nightTemperature="day.nightTemp"
+            :dayTemperature="day.dayTemp"
+            />
     </section>
 </template>
 
@@ -35,6 +17,11 @@ export default {
     name: 'NextDaysForecast',
     components: {
         DayWeather
+    },
+    computed: {
+        weatherForecast() {
+            return this.$store.getters.nextDaysForecast;
+        }
     }
 }
 </script>

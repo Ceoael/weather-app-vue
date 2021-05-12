@@ -22,11 +22,11 @@ export default {
             required: true
         },
         dayTemperature: {
-            type: String,
+            type: Number,
             required: true
         },
         nightTemperature: {
-            type: String,
+            type: Number,
             required: true
         }
         
