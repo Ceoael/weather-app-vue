@@ -12,6 +12,9 @@
             </div>
             <button class="searchBar__button" @click="searchHandler">Search</button>
         </div>
+        <div class="error">
+            {{ error }}
+        </div>
 
         <button v-for="place in places"
             class="place" 
@@ -49,6 +52,8 @@ export default {
             this.$store.dispatch('getWeather', {location: woeid});
         },
         searchHandler() {
+            if (!this.placeName) return;
+
             const formattedName = encodeURI(this.placeName);
 
             this.$store.dispatch('getAvailablePlaces', {name: formattedName});
@@ -57,6 +62,9 @@ export default {
     computed: {
         places() {
             return this.$store.getters.getAvailablePlaces;
+        },
+        error() {
+            return this.$store.getters.getErrorMessage;
         }
     }
 }
@@ -68,7 +76,9 @@ export default {
     top: 0;
     left:0;
 
-    height: 100vh;
+    height: 100%;
+    /* min-height:100%;
+    max-height: 100%; */
     padding: 12px;
 
     color: #E7E7EB;
@@ -79,6 +89,8 @@ export default {
     
     transform: translateX(-100%);
     transition: .3s transform ease-in-out;
+
+    overflow-y: scroll;
 }
 
 .navigation--show {
@@ -158,6 +170,15 @@ export default {
 .searchBar__button:hover,
 .searchBar__button:active {
     background: #4e72eb;
+}
+.error {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #f54d4d;
+    text-align: center;
+
+    padding-bottom: 15px;
 }
 .place {
     display: flex;

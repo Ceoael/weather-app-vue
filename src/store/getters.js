@@ -62,5 +62,8 @@ export default {
     },
     getAvailablePlaces(state) {
         return state.availablePlaces;
-    }    
+    },
+    getErrorMessage(state) {
+        return state.error;
+    }
 }

@@ -30,20 +30,15 @@ export default {
 .nextDaysForecast {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 
     width: 100%;
     
     padding: 55px 15px;
+    padding-bottom: 25px;
 }
-@media (min-width: 320px) {
+@media (min-width: 640px) {
     .nextDaysForecast {
-        padding: 55px 25px;
-    }
-}
-@media (min-width: 340px) {
-    .nextDaysForecast {
-        padding: 55px 52px;
+        justify-content: center;
     }
 }
 </style>

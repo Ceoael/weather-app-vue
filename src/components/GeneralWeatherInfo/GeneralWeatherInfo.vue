@@ -21,15 +21,20 @@ export default {
 
 <style scoped>
 .generalWeatherInfo {
+    position: relative;
     width: 100%;
     min-height: 100vh;
-    padding-bottom: 24px;
+    padding-bottom: 60px;
 
     background: #100E1D;
     color: #E7E7EB;
 }
 .footer {
-    margin-top: 96px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    padding: 20px 0;
 
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
@@ -45,7 +50,7 @@ export default {
 
 @media (min-width: 1024px) {
     .generalWeatherInfo {
-        padding-bottom: 5px;
+        margin-left: 460px;
     }
 }
 </style>

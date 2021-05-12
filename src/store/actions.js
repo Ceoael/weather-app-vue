@@ -7,6 +7,7 @@ export default {
                 context.commit('saveCurrentCity', {currentCity: title});
                 context.commit('saveWeatherForecast', {weatherForecast: data})
                 context.commit('setLoading', {loading: false});
+                context.commit('setError', {message: ''});
             })
             .catch ((err) => {
                 console.log(err);
@@ -31,12 +32,13 @@ export default {
             .then( res => res.json())
             .then( data => {
                 if (Array.isArray(data) && !data.length) {
-                    context.commit('setError', {message: 'Weather forecast for this location is unavailable'});
+                    context.commit('setError', {message: 'Weather forecast for this location is unavailable.'});
                     context.commit('setLoading', {loading: false});
                     return;
                 }
                 context.commit('setAvailablePlaces', {places: data});
                 context.commit('setLoading', {loading: false});
+                context.commit('setError', {message: ''});
             })
             .catch((err) => {
                 console.log(err);

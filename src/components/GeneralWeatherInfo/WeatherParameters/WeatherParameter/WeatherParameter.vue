@@ -67,23 +67,27 @@ export default {
 }
 @media (min-width: 1024px){
     .weatherParameter {
-        width: 150px;
+        width: 45%;
     }
-
     .weatherParameter__value {
-        font-size: 36px;
+        font-size: 48px;
     }
     .weatherParameter__value--unit {
         font-size: 16px;
     }
     .weatherParameter__additionalData {
         font-size: 14px;
-        
     }
 }
-/* @media (min-width: 1200px){
-    .weatherParameter {
-        width: 250px;
+@media (min-width: 1200px){
+    .weatherParameter__value {
+        font-size: 64px;
     }
-} */
+    .weatherParameter__value--unit {
+        font-size: 32px;
+    }
+    .weatherParameter__additionalData {
+        font-size: 16px;
+    }
+}
 </style>

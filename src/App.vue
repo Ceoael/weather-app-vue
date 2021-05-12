@@ -46,6 +46,10 @@ export default {
     showNavigationHandler(bValue) {
       this.showNavigation = bValue;
     }
+  },
+  mounted() {
+    this.$store.dispatch('loading', {loading: true});
+    this.$store.dispatch('getWeather', {location: 44418});
   }
 }
 </script>

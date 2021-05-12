@@ -1,10 +1,12 @@
 <template>
-    <div class="forecastElement">
-        <h2 class="forecastElement__date">{{ date }}</h2>
-        <img class="forecastElement__image" :src="imageSource" :alt="imageName"/>
-        <div class="forecastElement__temperatures">
-            <p>{{ dayTemperature }}°C</p>
-            <p class="forecastElement__temperatures--night">{{ nightTemperature }}°C</p>
+    <div class="forecastElement__wrapper">
+        <div class="forecastElement">
+            <h2 class="forecastElement__date">{{ date }}</h2>
+            <img class="forecastElement__image" :src="imageSource" :alt="imageName"/>
+            <div class="forecastElement__temperatures">
+                <p>{{ dayTemperature }}°C</p>
+                <p class="forecastElement__temperatures--night">{{ nightTemperature }}°C</p>
+            </div>
         </div>
     </div>
 </template>
@@ -40,6 +42,11 @@ export default {
 </script>
 
 <style scoped>
+.forecastElement__wrapper{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
 .forecastElement {
     display: flex;
     flex-direction: column;
@@ -74,5 +81,18 @@ export default {
     padding-left: 16px;
     color: #A09FB1;
 }
-
+@media (min-width: 640px) {
+    .forecastElement__wrapper{
+        width: auto;
+        padding-left:5px;
+    }
+    .forecastElement__wrapper:nth-of-type(1){
+        padding-left:0;
+    }
+}
+@media (min-width: 1200px) {
+    .forecastElement__wrapper{
+        padding-left: 15px;
+    }
+}
 </style>

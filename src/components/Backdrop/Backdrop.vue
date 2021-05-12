@@ -29,7 +29,6 @@ export default {
 
         width: 100%;
         height: 100%;
-        /* margin-top: 60px; */
         position: fixed;
         z-index: 99;
         left: 0;

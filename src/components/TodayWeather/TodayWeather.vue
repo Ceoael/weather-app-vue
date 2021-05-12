@@ -44,20 +44,17 @@ export default {
 </script>
 
 <style scoped>
+* {
+    --toolbarHeight: 58px;
+}
+
 .todayWeatherWrapper {
     position: relative;
 
     min-height: 100vh;
     width: 100%;
 
-    
     background-color: #1E213A;
-
-    /* background-image: url('./../../assets/Cloud-background.png');
-    background-blend-mode: soft-light;
-    background-repeat: no-repeat;
-    background-size: 564px 326px;
-    background-position: -111px 58px; */
     overflow: hidden;
 }
 
@@ -70,8 +67,7 @@ export default {
     width: 564px;
     height: 326px;
     opacity: 0.05;
-
-    /* background-image: url('./../../assets/Cloud-background.png'); */
+    
     background-image: url('/img/Cloud-background.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -79,17 +75,16 @@ export default {
 .todayWeather {
     display: flex;
     flex-direction: column;
+    min-height: calc(100vh - var(--toolbarHeight));
+
     align-items: center;
+    justify-content: space-around;
     
 }
 .todayWeather__image {
-    margin-top: 76px;
     width: 150px;
-    height: 174px;
 }
 .todayWeather__temperature {
-    margin-top: 40px;
-    
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
     font-size: 144px;
@@ -113,7 +108,7 @@ export default {
     text-align: center;
 }
 .todayWeather__date {
-    margin-top: 48px;
+    margin-top: 10px;
 
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
@@ -125,8 +120,8 @@ export default {
 }
 .todayWeather__localization {
     display: flex;
-
-    margin-top: 32px;
+    margin-top: 10px;
+    margin-bottom: 32px;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 18px;
@@ -137,8 +132,15 @@ export default {
 .todayWeather__placeIcon {
     margin-right: 9px;
 }
+@media (min-width: 420px){
+
+}
 
 @media (min-width: 1024px){
+    * {
+        --toolbarHeight: 82px;
+    }
+
     .todayWeatherWrapper {
         max-width: 460px;
     }
@@ -147,22 +149,8 @@ export default {
         height: 376px;
     }
     .todayWeather__image {
-        margin-top: 109px;
-        width: 202px;
-        height: 234px;
-    }
-    .todayWeather__temperature {
-        margin-top: 67px;
-    }
-    .todayWeather__description,
-    .todayWeather__date {
-        margin-top: 87px;
-    }
-}
-
-@media (min-width: 1200px){
-    .todayWeather__image {
         margin-top: 0px;
+        width: 202px;
     }
     .todayWeather__temperature {
         margin-top: 0;
@@ -172,5 +160,12 @@ export default {
         margin-top: 20px;
     }
 }
+
+@media (min-width: 1024px){
+    .todayWeatherWrapper {
+        position: fixed;
+    }
+}
+
 </style>
 
