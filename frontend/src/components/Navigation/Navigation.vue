@@ -86,11 +86,10 @@ export default {
 
     z-index: 2;
     
-    
     transform: translateX(-100%);
     transition: .3s transform ease-in-out;
 
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .navigation--show {
