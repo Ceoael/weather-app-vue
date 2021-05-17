@@ -12,10 +12,6 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/Ceoael/weather-app-vue/">
-      Solution
-    </a>
-    <span> | </span>
     <a href="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv">
       Challenge
     </a>
