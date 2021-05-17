@@ -66,7 +66,7 @@ $ node index.js
 
 # In second terminal
 # Navigate into the frontend directory
-$ cd backend
+$ cd frontend
 
 # Install dependencies
 $ npm install
